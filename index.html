@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <title>Hamster Runaway!</title>
+  <link rel="icon" type="image/x-icon" href="./Sprites/Images/Logo/Logo5.ico">
+
+  <canvas width="1414px" height="176px"></canvas>
+
+</head>
+
+<body>
+  <main>
+    <!-- PÁGINA INICIAL -->
+    <div id="game-intro">
+      <img src="./Sprites/Images/Logo/Logo5.png" alt="" class="logo-img" />
+      <br />
+      <button id="start-button">Start Game</button>
+      <!-- <p>Use the left and right arrow to control the hamster!</p> -->
+      <p></p>
+      <img src="./Sprites/Barras/arrows.png" alt="" class="arrows-img" />
+
+      <div class="background">
+        <img class="background_spritesheet pixelart initial_background" src="./Sprites/Images/sunflower_background.png"
+          alt="sunflower_path" />
+      </div>
+
+
+    </div>
+
+    <div id="game-container">
+      <div id="game-screen"></div>
+    </div>
+
+      <!-- PÁGINA FINAL -->
+      <div id="game-end">
+        <img src="./Sprites/Images/Logo/Logo5.png" alt="" class="logo-img" />
+        <h1>Game Over</h1>
+        <br />
+        <button id="restart-button">Restart</button>
+      </div>
+  </main>
+
+  <script type="text/javascript" src="js/component.js"></script>
+  <script type="text/javascript" src="js/obstacle.js"></script>
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
+</html>

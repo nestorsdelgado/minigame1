@@ -1,0 +1,155 @@
+body {
+  padding: 0;
+  text-align: center;
+}
+
+#start-button {
+  cursor: pointer;
+}
+
+#game-intro {
+  padding: 20px 0px;
+}
+
+#game-container {
+  display: flex;
+  width: 100vw;
+  padding: 20px 0px;
+  justify-content: center;
+}
+
+#game-screen {
+  display: none;
+  align-content: center;
+  padding: 20px 0px;
+  overflow: hidden;
+  position: relative;
+  background-image: url(../Sprites/Images/road.png);
+  background-size: cover;
+  animation: slide 5s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 -1000px;
+  }
+
+  95% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+#game-end {
+  display: none;
+}
+
+.game-intro p {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+
+body button {
+  font-size: 30px;
+  background-color: #870007;
+  color: #fff;
+  padding: 20px 40px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* --------------------- */
+
+
+/* HAMSTER*/
+
+:root {
+  --pixel-size: 1;
+}
+
+.Hamster {
+  width: calc(32px * var(--pixel-size));
+  height: calc(32px * var(--pixel-size));
+  overflow: hidden;
+  position: relative;
+  margin: 4em auto;
+  
+}
+
+.initial {
+  top: -96px;
+  left: calc(-32px * 6)
+}
+
+.Hamster_spritesheet {
+  animation: moveSpritesheet 1s steps(3) infinite;
+  width: calc(384px * var(--pixel-size));
+  position: absolute;
+
+}
+
+.pixelart {
+  image-rendering: pixelated;
+}
+
+
+
+@keyframes moveSpritesheet {
+  from {
+    transform: translate3d(0px, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-24%, 0, 0)
+  }
+}
+
+
+
+/* BACKGROUND*/
+
+.background {
+  width: calc(48px * var(--pixel-size));
+  height: calc(48px * var(--pixel-size));
+  overflow: hidden;
+  background: red;
+  position: relative;
+  margin: 4em auto;
+  
+}
+
+.initial_background {
+  top: 0px;
+  left: 0px
+}
+
+.background_spritesheet {
+  animation: moveSpritesheet_background 1s steps(8) infinite;
+  width: calc(500px * var(--pixel-size));
+  position: absolute;
+
+}
+
+
+@keyframes moveSpritesheet_background {
+  from {
+    transform: translate3d(0px, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0)
+  }
+}

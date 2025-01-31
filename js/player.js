@@ -7,24 +7,31 @@ class Player {
     this.height = height;
     this.directionX = 0;
     this.directionY = 0;
-    this.element = document.createElement("img");
 
-    this.element.src = imgSrc;
+    // Crear el contenedor del sprite en el juego
+    this.element = document.createElement("div");
+    this.element.classList.add("Hamster"); // Aplica la clase CSS del sprite
+
+    this.sprite = document.createElement("img");
+    this.sprite.src = imgSrc;
+
+    this.sprite.classList.add("Hamster_spritesheet", "pixelart", "initial"); // Clases CSS de animación
+
     this.element.style.position = "absolute";
     this.element.style.width = `${width}px`;
     this.element.style.height = `${height}px`;
     this.element.style.left = `${left}px`;
     this.element.style.top = `${top}px`;
 
+    // Agregar el sprite al contenedor
+    this.element.appendChild(this.sprite);
     this.gameScreen.appendChild(this.element);
   }
 
   move() {
-    // Update player's car position based on directionX and directionY
-    this.left += this.directionX;
-    this.top += this.directionY;
 
-    // Ensure the player's car stays within the game screen
+    this.left += this.directionX*1.75; // Hamster velocity
+
     if (this.left < 10) {
       this.left = 10;
     }
@@ -38,7 +45,6 @@ class Player {
       this.top = this.gameScreen.offsetHeight - this.height - 10;
     }
 
-    // Update the player's car position on the screen
     this.updatePosition();
   }
 
@@ -47,12 +53,11 @@ class Player {
     const obstacleRect = obstacle.element.getBoundingClientRect();
 
     if (
-      playerRect.left < obstacleRect.right &&
-      playerRect.right > obstacleRect.left &&
-      playerRect.top < obstacleRect.bottom &&
+      playerRect.left < obstacleRect.right - obstacleRect.width * 0.2 &&
+      playerRect.right > obstacleRect.left + obstacleRect.width * 0.2 &&
+      playerRect.top < obstacleRect.bottom - obstacleRect.height * 0.2 &&
       playerRect.bottom > obstacleRect.top
     ) {
-      console.log("Crash!");
 
       return true;
     } else {
@@ -64,4 +69,5 @@ class Player {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
   }
+
 }

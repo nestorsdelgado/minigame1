@@ -24,24 +24,12 @@ body {
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
-  background-image: url(../Sprites/Images/road.png);
+  background-image: url(../Sprites/Images/static_background.PNG);
   background-size: cover;
-  animation: slide 5s linear infinite;
+  width: 500px;
+  height: 600px;
 }
 
-@keyframes slide {
-  0% {
-    background-position: 0 -1000px;
-  }
-
-  95% {
-    background-position: 0 0;
-  }
-
-  100% {
-    background-position: 0 50px;
-  }
-}
 
 #game-end {
   display: none;
@@ -71,21 +59,34 @@ body button {
   margin-bottom: 20px;
 }
 
-/* --------------------- */
+/* GIF */
 
+.gif {
+  display: block;
+  margin: 20px auto;
+  width: 450px;
+  height: auto;
+}
+
+
+/* GENERAL INFO */
+
+:root {
+  --pixel-size-hamster: 1;
+  --pixel-size-cat: 1;
+  --pixel-size-explosion: 1;
+
+}
 
 /* HAMSTER*/
 
-:root {
-  --pixel-size: 1;
-}
-
 .Hamster {
-  width: calc(32px * var(--pixel-size));
-  height: calc(32px * var(--pixel-size));
+  width: calc(32px * var(--pixel-size-hamster));
+  height: calc(32px * var(--pixel-size-hamster));
   overflow: hidden;
   position: relative;
   margin: 4em auto;
+  z-index: 1;
   
 }
 
@@ -95,8 +96,8 @@ body button {
 }
 
 .Hamster_spritesheet {
-  animation: moveSpritesheet 1s steps(3) infinite;
-  width: calc(384px * var(--pixel-size));
+  animation: moveSpritesheet_hamster 1s steps(3) infinite;
+  width: calc(384px * var(--pixel-size-hamster));
   position: absolute;
 
 }
@@ -107,7 +108,7 @@ body button {
 
 
 
-@keyframes moveSpritesheet {
+@keyframes moveSpritesheet_hamster {
   from {
     transform: translate3d(0px, 0, 0)
   }
@@ -118,33 +119,36 @@ body button {
 }
 
 
+  /* CAT */
 
-/* BACKGROUND*/
-
-.background {
-  width: calc(48px * var(--pixel-size));
-  height: calc(48px * var(--pixel-size));
+.cat {
+  width: calc(10px * var(--pixel-size-cat));
+  height: calc(10px * var(--pixel-size-cat));
+  z-index: 10000;
   overflow: hidden;
-  background: red;
   position: relative;
-  margin: 4em auto;
-  
+  margin: 4em auto;  
 }
 
-.initial_background {
+.initial_cat {
   top: 0px;
   left: 0px
 }
 
-.background_spritesheet {
-  animation: moveSpritesheet_background 1s steps(8) infinite;
-  width: calc(500px * var(--pixel-size));
+.cat_spritesheet {
+  animation: moveSpritesheet_cat 1.5s steps(8) infinite;
+  width: calc(80px * var(--pixel-size-cat)); /* px are the total width of the sprite (width specified before * number of frames)*/
   position: absolute;
 
 }
 
+.pixelart {
+  image-rendering: pixelated;
+}
 
-@keyframes moveSpritesheet_background {
+
+
+@keyframes moveSpritesheet_cat {
   from {
     transform: translate3d(0px, 0, 0)
   }
@@ -152,4 +156,73 @@ body button {
   to {
     transform: translate3d(-100%, 0, 0)
   }
+}
+
+
+/* EXPLOSION */
+
+.explosion {
+  width: calc(44px * var(--pixel-size-explosion));
+  height: calc(44px * var(--pixel-size-explosion));
+  overflow: hidden;
+  position: relative;
+  margin: 4em auto;
+  
+}
+
+.initial_explosion {
+  top: -10px;
+  left: 10px;
+}
+
+.explosion_spritesheet {
+  animation: moveSpritesheet_explosion 1.5s steps(7) forwards;
+  width: calc(308px * var(--pixel-size-explosion)); /* px are the total width of the sprite (width specified before * number of frames)*/
+  position: absolute;
+
+}
+
+.pixelart {
+  image-rendering: pixelated;
+}
+
+
+
+@keyframes moveSpritesheet_explosion {
+  from {
+    transform: translate3d(0px, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-100%, 0, 0)
+  }
+}
+
+
+/* SCORE */
+
+#score {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+#escaped-cats {
+  position: absolute;
+  top: 75px;
+  left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background: rgba(255, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10;
 }

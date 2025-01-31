@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <title>Hamster Runaway!</title>
   <link rel="icon" type="image/x-icon" href="./Sprites/Images/Logo/Logo5.ico">
-
+  <!-- <a href="https://es.textstudio.com/">Generador de fuentes</a> -->
   <canvas width="1414px" height="176px"></canvas>
 
 </head>
@@ -20,36 +20,40 @@
       <img src="./Sprites/Images/Logo/Logo5.png" alt="" class="logo-img" />
       <br />
       <button id="start-button">Start Game</button>
-      <!-- <p>Use the left and right arrow to control the hamster!</p> -->
       <p></p>
       <img src="./Sprites/Barras/arrows.png" alt="" class="arrows-img" />
-
-      <div class="background">
-        <img class="background_spritesheet pixelart initial_background" src="./Sprites/Images/sunflower_background.png"
-          alt="sunflower_path" />
-      </div>
+      <p></p>
+      <img src="./Sprites/Images/instrucciones.gif" alt="instrucciones" class="gif">
 
 
     </div>
+
 
     <div id="game-container">
-      <div id="game-screen"></div>
+      <div id="game-screen">
+        <div id="score">Score: 0</div>
+        <div id="escaped-cats">Escaped Cats: 0</div>
+      </div>
     </div>
 
-      <!-- PÁGINA FINAL -->
-      <div id="game-end">
-        <img src="./Sprites/Images/Logo/Logo5.png" alt="" class="logo-img" />
-        <h1>Game Over</h1>
-        <br />
-        <button id="restart-button">Restart</button>
-      </div>
+    <!-- PÁGINA FINAL -->
+    <div id="game-end">
+      <img src="./Sprites/Images/Logo/Logo5.png" alt="" class="logo-img" />
+      <h1>Game Over</h1>
+      <h2 id="final-score">Score: 0</h2>
+      <br />
+      <button id="restart-button">Restart</button>
+    </div>
   </main>
 
   <script type="text/javascript" src="js/component.js"></script>
   <script type="text/javascript" src="js/obstacle.js"></script>
+  <script type="text/javascript" src="js/seeds.js"></script>
   <script type="text/javascript" src="js/player.js"></script>
   <script type="text/javascript" src="js/game.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript" src="js/explosion.js"></script>
+
 </body>
 
 </html>

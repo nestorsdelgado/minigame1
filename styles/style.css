@@ -24,7 +24,7 @@ body {
   padding: 20px 0px;
   overflow: hidden;
   position: relative;
-  background-image: url(../Sprites/Images/static_background.png);
+  background-image: url("../Sprites/Images/static_background.png");
   background-size: cover;
   width: 500px;
   height: 600px;
